@@ -1,0 +1,23 @@
+make data-base first i called mines "employeedb"
+
+run these scripts individually to make the tables.
+
+CREATE TABLE Employee (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(255),
+    SSN CHAR(11),
+    JobTitle VARCHAR(100),
+    Division VARCHAR(100)
+);
+
+CREATE TABLE PayStatement (
+    EmployeeID INT,
+    AmountPaid DECIMAL(10, 2),
+    FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
+);
+
+CREATE TABLE Salary (
+    EmployeeID INT,
+    Amount DECIMAL(10, 2),
+    FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
+);
